@@ -2,7 +2,6 @@ import { getArticleContent } from '@/lib/getArticles';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
-// ✅ 使用 PageProps 直接来自 next 15 的类型签名
 interface PageProps {
   params: {
     category: string;
