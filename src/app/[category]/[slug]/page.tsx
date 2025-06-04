@@ -2,14 +2,14 @@ import { getArticleContent } from '@/lib/getArticles';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
-type Props = {
+type PageProps = {
   params: {
     category: string;
     slug: string;
   };
 };
 
-export default function ArticlePage({ params }: Props) {
+export default function ArticlePage({ params }: PageProps) {
   const data = getArticleContent(params.category, params.slug);
 
   if (!data) return notFound();
