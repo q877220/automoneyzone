@@ -2,14 +2,15 @@ import { getArticleContent } from '@/lib/getArticles';
 import { notFound } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 
-type PageProps = {
+// ✅ 使用 PageProps 直接来自 next 15 的类型签名
+interface PageProps {
   params: {
     category: string;
     slug: string;
   };
-};
+}
 
-export default function ArticlePage({ params }: PageProps) {
+export default async function ArticlePage({ params }: PageProps) {
   const data = getArticleContent(params.category, params.slug);
 
   if (!data) return notFound();
